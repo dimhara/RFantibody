@@ -27,8 +27,9 @@ COPY . .
 # - Installs DGL and python dependencies via poetry
 # - Compiles USalign
 # Note: This increases build time significantly, but startup time will be instant.
-RUN bash include/download_weights.sh && \
-    bash include/setup.sh
+RUN bash include/download_weights.sh 
+# no space left on device (download all nvidia cuda again!) : 
+#  && bash include/setup.sh
 
 # 6. Keep the container running on RunPod
 CMD ["sleep", "infinity"]
