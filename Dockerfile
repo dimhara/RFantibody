@@ -17,6 +17,9 @@ RUN ln -sf /usr/bin/python3.10 /usr/bin/python
 # This is required before running the setup.sh script
 RUN pip install --no-cache-dir poetry
 
+# Add missing forgetten dependencies
+RUN poetry run pip install biotite
+
 # 4. Set Workdir and Copy Source Code ("Baking it in")
 WORKDIR /home
 COPY . .
